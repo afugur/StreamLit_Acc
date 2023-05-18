@@ -257,13 +257,23 @@ def mainPage():
                     st.markdown(download_excel(results), unsafe_allow_html=True)
 
 
-page_names_to_funcs = {
+
+
+if __name__ == "__main__":
+    st.set_page_config(
+        page_title="Streamlit App",
+        page_icon=":rocket:",
+        layout="wide"
+    )
+
+    page_names_to_funcs = {
 
     "Read Acceleration Page": mainPage,
     "About Me": intro,
 
     
-}
+    }
 
-demo_name = st.sidebar.selectbox("Select a Page", page_names_to_funcs.keys())
-page_names_to_funcs[demo_name]()
+    demo_name = st.sidebar.selectbox("Select a Page", page_names_to_funcs.keys())
+    page_names_to_funcs[demo_name]()
+    # Streamlit uygulamanızın çağrıldığı yerdeki fonksiyonu buraya ekleyin
